@@ -1,12 +1,38 @@
-import familiyastestedeimport
+print("<<<<<<<<<<<<<<<<<<<<<<Tabela Periodica>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+print("H\nLi","Be                              B  C  N  O  F  Ne\nNa","Mg                              Al Si P  S  Cl Ar\nK"," Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr\nRb","Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I  Xe\nCs","Ba   Hf Ta W  Re Os Ir Pt Au Hg Ti Pb Bi Po At Rn\nFr","Ra   Rf Db Sg Bh Hs Mt Ds Rg Cn Nh FI Mc Lv Ts Og")
+
+
+
+
+
+
+
+
+
+
+
+
+
 f1a=('Li', 'Na', 'K', 'Rb', 'Cs', 'Fr')
 f2a=('Be', 'Ca', 'Mg', 'Sr', 'Ba','Ra')
 f3a=('B', 'Al', 'Ga', 'In', 'Tl')
 f4a=('C', 'Si', 'Ge', 'Sn', 'Pb')
-f5a=('N', 'P', 'As', 'Sb', 'Bi')
+f5a=['N', 'P', 'As', 'Sb', 'Bi']
 f6a=('O', 'S', 'Se', 'Te', 'Po')
 f7a=('F', 'Cl', 'Br', 'I', 'At')
 f8a=('He', 'Ne', 'Ar', 'Kr' , 'Xe', 'Rn')
+f1b =("Cu","Ag","Au","Rg")
+f2b =("Zn","Cd","Hg","Uub") 
+f3b =("Sc","Y","Lu","Lr")
+f4b =("Ti","Zr","Hf","Rf") 
+f5b =("V","Nb","Ta","Db") 
+f6b =("Cr","Mo","W","Sg") 
+f7b =("Mn","Tc","Re","Bh")
+f8b =("Fe","Ru","Rh","Os","Hs","Mt","Ir","Rh","Co","Ni","Pd","Pt","Ds") 
+
+
+
+
 
 a=input('enter value')
 
@@ -29,8 +55,25 @@ if a in f7a:
     print ('FAMILY 7A')
 if a in f8a:
     print ('FAMILY 8A')    
-else:
-    print('family B')
+if a in f1b:
+    print ('FAMILY 1B')
+if a in f2b:
+    print ('FAMILY 2B')    
+if a in f3b:
+    print ('FAMILY 3B') 
+if a in f4b:
+    print ('FAMILY 4B')
+if a in f5b:
+    print ('FAMILY 5B')    
+if a in f6b:
+    print ('FAMILY 6B') 
+if a in f7b:
+    print ('FAMILY 7B')
+if a in f8b:
+    print ('FAMILY 8B')    
+
+
+
 
 
 
@@ -104,4 +147,5 @@ for i in range(q):
 
     elif e6> e5:
         print(e2,' eh maiseletronegativo')
+
 
