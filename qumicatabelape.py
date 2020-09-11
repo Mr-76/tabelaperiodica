@@ -30,6 +30,16 @@ f6b =("Cr","Mo","W","Sg")
 f7b =("Mn","Tc","Re","Bh")
 f8b =("Fe","Ru","Rh","Os","Hs","Mt","Ir","Rh","Co","Ni","Pd","Pt","Ds") 
 
+p1 = ['H','He']
+p2 = ['Li','Be','B','C','N','O','F','Ne']
+p3 = ['Na','Mg','Al','Si','P','S','Cl','Ar'] 
+p4 = ['K','Ca','Sc','Ti','V','Cr','Mn','Fe','Co','Ni','Cu','Zn','Ga','Ge','As','Se','Br','Kr']
+p5 = ['Rb','Sr','Y','Zr','Nb','Mo','Tc','Ru','Rh','Pd','Ag','Cd','In','Sn','Sb','Te','I','Xe']
+p6 = ['Cs','Ba','Hf','Ta','W','Re','os','Ir','Pt','Au','Hg','Tl','Pb','Bi','Po','At','Rn']
+p7 = ['Fr','Ra','Rf','Db','Sg','Bh','Hs','Mt','Ds','Rg','Cn','Uut','Fl','Uup','lv','Uus','Uuo']
+
+
+
 
 
 
@@ -40,39 +50,57 @@ a=input('\nGet the family of the element \n enter the name of the element in the
 
 
 if a in f1a:
-    print ('FAMILY 1A')
+    print ('FAMILY 1A\n')
 if a in f2a:
-    print ('FAMILY 2A')    
+    print ('FAMILY 2A\n')    
 if a in f3a:
-    print ('FAMILY 3A') 
+    print ('FAMILY 3A\n') 
 if a in f4a:
-    print ('FAMILY 4A')
+    print ('FAMILY 4A\n')
 if a in f5a:
-    print ('FAMILY 5A')    
+    print ('FAMILY 5A\n')    
 if a in f6a:
-    print ('FAMILY 6A') 
+    print ('FAMILY 6A\n') 
 if a in f7a:
-    print ('FAMILY 7A')
+    print ('FAMILY 7A\n')
 if a in f8a:
-    print ('FAMILY 8A')    
+    print ('FAMILY 8A\n')    
 if a in f1b:
-    print ('FAMILY 1B')
+    print ('FAMILY 1B\n')
 if a in f2b:
-    print ('FAMILY 2B')    
+    print ('FAMILY 2B\n')    
 if a in f3b:
-    print ('FAMILY 3B') 
+    print ('FAMILY 3B\n') 
 if a in f4b:
-    print ('FAMILY 4B')
+    print ('FAMILY 4B\n')
 if a in f5b:
-    print ('FAMILY 5B')    
+    print ('FAMILY 5B\n')    
 if a in f6b:
-    print ('FAMILY 6B') 
+    print ('FAMILY 6B\n') 
 if a in f7b:
-    print ('FAMILY 7B')
+    print ('FAMILY 7B\n')
 if a in f8b:
-    print ('FAMILY 8B')    
+    print ('FAMILY 8B\n')    
 
 
+
+#######################################
+if a in p1:
+    print ('1° periodo\n')
+if a in p2:
+    print ('2° periodo\n')    
+if a in p3:
+    print ('3° periodo\n')
+if a in p4:
+    print ('4° periodo\n')    
+if a in p5:
+    print ('5° periodo\n') 
+if a in p6:
+    print ('6° periodo\n')
+if a in p7:
+    print ('7° periodo\n')    
+
+#################################
 
 
 print('\nNow we are going to compare 2 elements by their eletronegavity \n ')
