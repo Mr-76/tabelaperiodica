@@ -1,4 +1,4 @@
-print("<<<<<<<<<<<<<<<<<<<<<<Tabela Periodica>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+print("<<<<<<<<<<<<<<<<<<<<<<Periodic table>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 print("H\nLi","Be                              B  C  N  O  F  Ne\nNa","Mg                              Al Si P  S  Cl Ar\nK"," Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr\nRb","Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I  Xe\nCs","Ba   Hf Ta W  Re Os Ir Pt Au Hg Ti Pb Bi Po At Rn\nFr","Ra   Rf Db Sg Bh Hs Mt Ds Rg Cn Nh FI Mc Lv Ts Og")
 print("_____________________________________________________")
 
@@ -108,7 +108,7 @@ print('\nNow we are going to compare 2 elements by their eletronegavity \n ')
 q = int(input('\n How many comparations ?\n' ))
 for i in range(q):
 
-    e1 = input('\nelemento 1\n')
+    e1 = input('\nelement 1\n')
     if e1 == 'F':
         e5 = 3.98
     if e1 == 'O':
@@ -338,7 +338,7 @@ for i in range(q):
         e5 = 0.8
 
 
-    e2 = input('\nelemento2\n')
+    e2 = input('\nelement 2\n')
     if e2 == 'F':
         e6 = 3.98
     if e2 == 'O':
