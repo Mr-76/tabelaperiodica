@@ -13,7 +13,61 @@ elementos_eletro = {'F':3.98,"O":3.44,"Cl":3.16,'N':3.04,'Br':2.96,'I':2.66,'S':
 'Se':2.55,'S':2.58,'Ba':2.6,'Cs':2.66,'Kr':2.96,'Rb':0.8}
 
 
+#cada um chama um input 
+elementos_massa = elementos_eletro
+elementos_atomico = elementos_eletro
+elemetos_estado = elementos_eletro
+elementos_Radio_art = elementos_eletro
+
+
+def Massa():
+    for i in elementos_eletro:
+        string  = ("massa do elemento {} ".format(i))
+        novo_valor = float(input(string))
+        elementos_massa[i] = novo_valor
+        print(elementos_massa)
+    with open("Elementos_massa.txt",'w') as Massa:
+        Massa.write(str(elementos_massa))
+
+def Atomico():
+    for i in elementos_eletro:
+        string  = ("numero atomico do elemento {} ".format(i))
+        novo_valor = float(input(string))
+        elementos_massa[i] = novo_valor
+        print(elementos_atomico)
+    with open("Elementos_atomico.txt",'w') as Atomico:
+        Atomico.write(str(elementos_atomico))
+
+def Estado():
+    for i in elementos_eletro:
+        string  = ("estado do elemento {} ".format(i))
+        novo_valor = input(string)
+        elementos_massa[i] = novo_valor
+        print(elementos_estado)
+    with open("Elementos_estado.txt",'w') as Estado:
+        Estado.write(str(elementos_estado))
+
+def Rad_art():
+    for i in elementos_eletro:
+        string  = ("massa do elemento {} ".format(i))
+        novo_valor =input(string)
+        elementos_Radio_art[i] = novo_valor
+        print(elementos_Radio_art)
+    with open("Elementos_massa.txt",'w') as Radioativo_art:
+        Radioativo_art.write(str(elementos_Radio_art))
+
+def main():
+    Massa()
+    Atomico()
+    Estado()
+    Rad_art()
 
 
 
-#
+if __name__ == "__main__":
+    main()
+    
+
+
+
+
