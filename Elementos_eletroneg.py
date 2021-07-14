@@ -16,36 +16,85 @@ elementos_eletro = {'F':3.98,"O":3.44,"Cl":3.16,'N':3.04,'Br':2.96,'I':2.66,'S':
 #cada um chama um input 
 elementos_massa = elementos_eletro
 elementos_atomico = elementos_eletro
-elemetos_estado = elementos_eletro
+elementos_estado = elementos_eletro
 elementos_Radio_art = elementos_eletro
 
 
-def Massa():
-    for i in elementos_eletro:
+
+#add try e xecp value erro e  type error print tenar novamento 
+
+try:
+except ValueError or KeyError:
+
+
+
+
+
+
+
+
+
+
+
+#podia dar ad de onde começar de qual indice começar caso pc feche '
+
+start = input("coloque 0 para começo 0 ou o elemento para começar desse elemento")
+if start == '0':
+    start = 0
+else:
+    start = elementos_eletro.
+
+
+
+lista_dicionarios = []  #cria lista para ordenar o dicinario ;)
+for i in elementos_eletro:
+    lista_dicionarios.append(i)
+    lista_dicionarios.append([i])
+    
+#criando os dic 
+for i in range(len(lista_dicionarios)):
+    VALOR = i + 1 # usa caso for o dicinario todo em lista , mas como mudo pode per                                             guntar como input 
+    if i % 2 == 0:
+        dicinario_respectiva_propriedade[lista_dicionarios[i]] = lista[VALOR]
+
+
+
+def Massa():#dic nao tem ordem ;) criar uma lista e aos poucos criar os dic parece                                                                              melhor
+    
+    for i in range(len(i)
+
+
+
+
+
+
+    for i in range(start,len(elementos_eletro)):
         string  = ("massa do elemento {} ".format(i))
         novo_valor = float(input(string))
         elementos_massa[i] = novo_valor
-        
+        with open("Elementos_massa.txt",'w') as Massa:
+            Massa.write(str(elementos_massa))
+    
+
         string  = ("numero atomico do elemento {} ".format(i))
         novo_valor = float(input(string))
         elementos_atomico[i] = novo_valor
-     
+        with open("Elementos_atomico.txt",'w') as Atomico:
+            Atomico.write(str(elementos_atomico))
+ 
+
+
         string  = ("estado do elemento {} ".format(i))
         novo_valor = input(string)
         elementos_estado[i] = novo_valor
-      
+        with open("Elementos_estado.txt",'w') as Estado:
+            Estado.write(str(elementos_estado))
+    
         string  = ("rad elemento {} ".format(i))
         novo_valor =input(string)
         elementos_Radio_art[i] = novo_valor
- 
-    with open("Elementos_atomico.txt",'w') as Atomico:
-        Atomico.write(str(elementos_atomico))
-    with open("Elementos_massa.txt",'w') as Massa:
-        Massa.write(str(elementos_massa))
-    with open("Elementos_estado.txt",'w') as Estado:
-        Estado.write(str(elementos_estado))
-    with open("Elementos_massa.txt",'w') as Radioativo_art:
-        Radioativo_art.write(str(elementos_Radio_art))
+        with open("Elementos_RAD.txt",'w') as Radioativo_art:
+            Radioativo_art.write(str(elementos_Radio_art))
 
 
 
