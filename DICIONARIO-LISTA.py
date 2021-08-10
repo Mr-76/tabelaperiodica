@@ -13,15 +13,20 @@ elementos_eletro = {'F':3.98,"O":3.44,"Cl":3.16,'N':3.04,'Br':2.96,'I':2.66,'S':
 'Fr':2.24,'Pd':2.28,'Hg':2.28,'Po':2.33,'Os':2.36,'TI':2.54,'C':2.55,
 'Se':2.55,'S':2.58,'Ba':2.6,'Cs':2.66,'Kr':2.96,'Rb':0.8}
 
+
 Dicionario_para_lista = list(elementos_eletro.items())
 print(Dicionario_para_lista)
 contador = -1
+qual_elemento = input("Coloque aquie o nome do elemento ")
+
 for item in  Dicionario_para_lista:
     contador += 1
-    if item[0] == 'Mg':
+    if item[0] == qual_elemento:
         break
 print(contador)
 print(Dicionario_para_lista[contador])
+
+
 
 for elemento in range(contador+1,len(Dicionario_para_lista)):
     print(Dicionario_para_lista[elemento])
