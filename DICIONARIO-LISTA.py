@@ -14,17 +14,56 @@ elementos_eletro = {'F':3.98,"O":3.44,"Cl":3.16,'N':3.04,'Br':2.96,'I':2.66,'S':
 'Se':2.55,'S':2.58,'Ba':2.6,'Cs':2.66,'Kr':2.96,'Rb':0.8}
 
 
-Dicionario_para_lista = list(elementos_eletro.items())
-print(Dicionario_para_lista)
-contador = -1
-qual_elemento = input("Coloque aquie o nome do elemento ")
 
-for item in  Dicionario_para_lista:
+
+
+Dicionario_para_lista = list(elementos_eletro.items())#transformando a lista de tuplas objeto do dicionario em uma lista 'real'
+
+
+print(Dicionario_para_lista)
+elementos_atomico = elementos_eletro
+elementos_estado = elementos_eletro
+elementos_Radio_art = elementos_eletro
+
+
+tipos = ("massa","atomico","estado","radio")
+#massa
+for tipo in tipos:
+    print("tipo: %s",tipo)
+    
+    escolha = input("esse e o tipo para editar ? Y/N" )
+
+    if escolha = "N":
+        continue
+    if escolha = "Y":
+        Nome_Arquivo = ("{}.txt".format(tipo))
+        
+        with open(Nome_Arquivo,r) as arquivo_deTexto:
+            
+
+        
+
+
+
+
+
+
+
+
+contador = -1 #contador para indice de começar de onde parou
+
+
+qual_elemento = input("Coloque aquie o nome do elemento ") 
+
+for item in  Dicionario_para_lista: #procurando elemento na lista 
     contador += 1
-    if item[0] == qual_elemento:
+    if item[0] == qual_elemento: #item 0 se refere ao primeiro elemento da tupla (key , valor)
         break
-print(contador)
-print(Dicionario_para_lista[contador])
+
+print(contador) # me da o indice
+
+
+print(Dicionario_para_lista[contador]) #me da o elemento 
 
 
 

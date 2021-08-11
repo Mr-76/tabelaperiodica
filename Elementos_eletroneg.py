@@ -21,7 +21,7 @@ elementos_Radio_art = elementos_eletro
 
 
 
-#add try e xecp value erro e  type error print tenar novamento 
+#add try e xecp value erro e  type error print tenar novamente 
 
 try:
 except ValueError or KeyError:
