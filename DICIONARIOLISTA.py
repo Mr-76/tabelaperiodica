@@ -1,3 +1,4 @@
+import ast
 
 elementos_eletro = {'F':3.98,"O":3.44,"Cl":3.16,'N':3.04,'Br':2.96,'I':2.66,'S':2.58,'Ac':0.7,"La":0.79,'Sr':0.82,'Ce':0.89,'Th':0.89,'Na':0.93,'Y':0.95,
 'Li':0.98,'K':0.82,'Pr':1.1,'Pa':1.1,'Nd':1.12,'Pm':1.13,'Sm':1.14,
@@ -25,24 +26,24 @@ print(Dicionario_para_lista)
 tipos = ("massa","atomico","estado","radio")
 #massa
 for tipo in tipos:
+
     print("tipo: {}".format(tipo))
     
-    escolha = input("esse e o tipo para editar ? Y/N" )
+    escolha = input("esse e o tipo para editar ? Y/N " )
 
     if escolha == "N":
         continue #pular para outro tipo 
     if escolha == "Y":
         Nome_Arquivo = ("{}.txt".format(tipo))
-"""
-    with open(Nome_Arquivo,"r") as arquivo_deTexto:
-        texto = arquivo_deTexto.readlines()
-        print(texto)
-"""
+
     try:
         with open(Nome_Arquivo,"r") as arquivo_deTexto:
             texto = arquivo_deTexto.readlines()
+        print(type(texto))
+        print(type(texto[0]))
        
         convertendo_ParaDict = ast.literal_eval(texto[0])
+        print(convertendo_ParaDict)
         lista_Tuplas = list(convertendo_ParaDict.items())
         
         adicionar_ou_modificar = input('deseja adicionar ou modificar? A/M')
@@ -51,33 +52,33 @@ for tipo in tipos:
             contador = -1
             qual_elemento = input("Coloque aquie o nome do elemento ") 
 
-        for item in  lista_Tuplas: #procurando elemento na lista               
-            contador += 1 #index
-            if item[0] == qual_elemento: #item  se refere ao primeiro elemento da tupla (key , valor)
-                break
+            for item in  lista_Tuplas: #procurando elemento na lista               
+                contador += 1 #index
+                if item[0] == qual_elemento: #item  se refere ao primeiro elemento da tupla (key , valor)
+                    break
 
-        print(contador) # me da o indice
+            print(contador) # me da o indice
 
 
-        print(lista_Tuplas[contador]) #me da o elemento 
+            print(lista_Tuplas[contador]) #me da o elemento 
 
-        valor = int(input("valor a modificar susbstituir no elemento? "))
-        lista_Tuplas[contador] #modificar para indice
-        lista_tupla = []
-        lista_tupla.append(lista_Tuplas[contador][0])
-        lista_tupla.append(valor)
+            valor = int(input("valor a modificar susbstituir no elemento? "))
+            lista_Tuplas[contador] #modificar para indice
+            lista_tupla = []
+            lista_tupla.append(lista_Tuplas[contador][0])
+            lista_tupla.append(valor)
 
-        lista_Tuplas[contador] = tuple(lista_tupla)
+            lista_Tuplas[contador] = tuple(lista_tupla)
 
-        dicionario_volta = dict(lista_Tuplas)
+            dicionario_volta = dict(lista_Tuplas)
 
-        
-        with open(Nome_Arquivo,'w') as arquivo_deTexto:
-            string = str(dicionario_volta)
-            arquivo_deTexto.write(string)
+            
+            with open(Nome_Arquivo,'w') as arquivo_deTexto:
+                string = str(dicionario_volta)
+                arquivo_deTexto.write(string)
 
         if adicionar_ou_modificar == "A":
-            with open(Nome_Arquivo,r) as arquivo_deTexto:
+            with open(Nome_Arquivo,'r') as arquivo_deTexto:
                 texto = arquivo_deTexto.readlines()
 
             convertendo_ParaDict = ast.literal_eval(texto[0])
@@ -93,10 +94,9 @@ for tipo in tipos:
 
             with open(Nome_Arquivo,'w') as arquivo_deTexto:
                 string = str(dicionario_volta)
-                arquivo_deTexto.write(dicionario_volta)
-    except:
+                arquivo_deTexto.write(string)
+    except:       
         print("criando arquivo")
-        
         for index_tupla in range(len(Dicionario_para_lista)):
             
             quitar = input('quitear programa ? S/N ')
@@ -114,4 +114,4 @@ for tipo in tipos:
                 with open(Nome_Arquivo,'w') as arquivo_deTexto:
                     string = str(dicionario_volta)
                     arquivo_deTexto.write(string)
- 
+
