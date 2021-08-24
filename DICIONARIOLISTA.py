@@ -13,7 +13,7 @@ elementos_eletro = {'F':3.98,"O":3.44,"Cl":3.16,'N':3.04,'Br':2.96,'I':2.66,'S':
 'As':2.18,'P':2.19,'H':2.2,'Rh':2.26,'Ag':2.2,'Pt':2.2,'Au':2.2,
 'Fr':2.24,'Pd':2.28,'Hg':2.28,'Po':2.33,'Os':2.36,'TI':2.54,'C':2.55,
 'Se':2.55,'S':2.58,'Ba':2.6,'Cs':2.66,'Kr':2.96,'Rb':0.8}
-
+#
 
 
 
@@ -46,67 +46,74 @@ for tipo in tipos:
         print(convertendo_ParaDict)
         lista_Tuplas = list(convertendo_ParaDict.items())
         
-        adicionar_ou_modificar = input('deseja adicionar ou modificar? A/M')
         
-        if adicionar_ou_modificar == "M":
-            contador = -1
-            qual_elemento = input("Coloque aquie o nome do elemento ") 
+        (adicionar_ou_modificar,repetiçao) = input('deseja adicionar ou modificar? A/M e quantas vezes ex: M 10 ').split()
+        
+        repetiçao= int(repetiçao)
+        
+        for repetir in range(repetiçao):
 
-            for item in  lista_Tuplas: #procurando elemento na lista               
-                contador += 1 #index
-                if item[0] == qual_elemento: #item  se refere ao primeiro elemento da tupla (key , valor)
-                    break
+            if adicionar_ou_modificar == "M":
+                contador = -1
+                qual_elemento = input("Coloque aquie o nome do elemento ") 
 
-            print(contador) # me da o indice
+                for item in  lista_Tuplas: #procurando elemento na lista               
+                    contador += 1 #index
+                    if item[0] == qual_elemento: #item  se refere ao primeiro elemento da tupla (key , valor)
+                        break
+
+                print(contador) # me da o indice
 
 
-            print(lista_Tuplas[contador]) #me da o elemento 
+                print(lista_Tuplas[contador]) #me da o elemento 
 
-            valor = int(input("valor a modificar susbstituir no elemento? "))
-            lista_Tuplas[contador] #modificar para indice
-            lista_tupla = []
-            lista_tupla.append(lista_Tuplas[contador][0])
-            lista_tupla.append(valor)
+                valor = int(input("valor a modificar susbstituir no elemento? "))
+                lista_Tuplas[contador] #modificar para indice
+                lista_tupla = []
+                lista_tupla.append(lista_Tuplas[contador][0])
+                lista_tupla.append(valor)
 
-            lista_Tuplas[contador] = tuple(lista_tupla)
+                lista_Tuplas[contador] = tuple(lista_tupla)
 
-            dicionario_volta = dict(lista_Tuplas)
+                dicionario_volta = dict(lista_Tuplas)
 
-            
-            with open(Nome_Arquivo,'w') as arquivo_deTexto:
-                string = str(dicionario_volta)
-                arquivo_deTexto.write(string)
+                
+                with open(Nome_Arquivo,'w') as arquivo_deTexto:
+                    string = str(dicionario_volta)
+                    arquivo_deTexto.write(string)
 
-        if adicionar_ou_modificar == "A":
-            with open(Nome_Arquivo,'r') as arquivo_deTexto:
-                texto = arquivo_deTexto.readlines()
+            if adicionar_ou_modificar == "A":
+                with open(Nome_Arquivo,'r') as arquivo_deTexto:
+                    texto = arquivo_deTexto.readlines()
 
-            convertendo_ParaDict = ast.literal_eval(texto[0])
-            lista_Tuplas = list(convertendo_ParaDict.items())
+                convertendo_ParaDict = ast.literal_eval(texto[0])
+                lista_Tuplas = list(convertendo_ParaDict.items())
 
-            elementoTupla,valorTupla = input("digite o elemento e o valor entre espacos ex: Fe 2").split()
+                elementoTupla,valorTupla = input("digite o elemento e o valor entre espacos ex: Fe 2").split()
 
-            listaElemento = [elementoTupla,int(valorTupla)]
+                listaElemento = [elementoTupla,int(valorTupla)]
 
-            lista_Tuplas.append(tuple(listaElemento))
+                lista_Tuplas.append(tuple(listaElemento))
 
-            dicionario_volta = dict(lista_Tuplas)
+                dicionario_volta = dict(lista_Tuplas)
 
-            with open(Nome_Arquivo,'w') as arquivo_deTexto:
-                string = str(dicionario_volta)
-                arquivo_deTexto.write(string)
-    except:       
+                with open(Nome_Arquivo,'w') as arquivo_deTexto:
+                    string = str(dicionario_volta)
+                    arquivo_deTexto.write(string)
+    except:      
         print("criando arquivo")
-        for index_tupla in range(len(Dicionario_para_lista)):
-            
-            quitar = input('quitear programa ? S/N ')
-            if quitar == "S":
+        print("Primeira vez do arquivo sendo feito")
+        for index_tupla in range(len(Dicionario_para_lista)): 
+            # quitar = input('quitear programa ? S/N ')
+                #if quitar == "S":
+                 #   break
+            lista_tuplas = []
+            print("elemento ",Dicionario_para_lista[index_tupla][0])
+            valor = input("digite o valor a ser modificado no elemento caso queria sair apenas \npressione enter ")
+            if valor == '':
                 break
-
             else:
-                lista_tuplas = []
-                print("elemento ",Dicionario_para_lista[index_tupla][0])
-                valor = input("digite o valor a ser modificado no elemento ")
+
                 lista_tuplas.append(Dicionario_para_lista[index_tupla][0])
                 lista_tuplas.append(valor) 
                 Dicionario_para_lista[index_tupla] = tuple(lista_tuplas)
