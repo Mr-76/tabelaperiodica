@@ -1,4 +1,30 @@
 import ast
+def adiciona_a_lista(elementoTupla,valorTupla):
+    if type(valorTupla) == int:
+        listaElemento = [elementoTupla,int(valorTupla)]
+        lista_Tuplas.append(tuple(listaElemento))
+    
+    else:
+        listaElemento = [elementoTupla,valorTupla]
+        lista_Tuplas.append(tuple(listaElemento))
+                
+
+
+
+
+def transforma_em_dic(lista_Tuplas):
+    dicionario_volta = dict(lista_Tuplas)
+    dicionario_volta = str(dicionario_volta)
+    return dicionario_volta
+            
+def escrever_arquivo(Nome_Arquivo,dicionario_volta):
+    with open(Nome_Arquivo,'w') as arquivo_deTexto:
+        arquivo_deTexto.write(dicionario_volta)
+
+def leitura(Nome_Arquivo):
+    with open(Nome_Arquivo,'r') as arquivo_deTexto:
+        texto = arquivo_deTexto.readlines()
+    return texto
 
 elementos_eletro = {'F':3.98,"O":3.44,"Cl":3.16,'N':3.04,'Br':2.96,'I':2.66,'S':2.58,'Ac':0.7,"La":0.79,'Sr':0.82,'Ce':0.89,'Th':0.89,'Na':0.93,'Y':0.95,
 'Li':0.98,'K':0.82,'Pr':1.1,'Pa':1.1,'Nd':1.12,'Pm':1.13,'Sm':1.14,
@@ -26,9 +52,8 @@ print(Dicionario_para_lista)
 tipos = ("massa","atomico","estado","radio")
 #massa
 for tipo in tipos:
-
     print("tipo: {}".format(tipo))
-    
+
     escolha = input("esse e o tipo para editar ? Y/N " )
 
     if escolha == "N":
@@ -37,8 +62,11 @@ for tipo in tipos:
         Nome_Arquivo = ("{}.txt".format(tipo))
 
     try:
-        with open(Nome_Arquivo,"r") as arquivo_deTexto:
-            texto = arquivo_deTexto.readlines()
+
+        texto = leitura(Nome_Arquivo)
+        #with open(Nome_Arquivo,"r") as arquivo_deTexto:
+         #   texto = arquivo_deTexto.readlines()
+        
         print(type(texto))
         print(type(texto[0]))
        
@@ -75,50 +103,92 @@ for tipo in tipos:
 
                 lista_Tuplas[contador] = tuple(lista_tupla)
 
-                dicionario_volta = dict(lista_Tuplas)
-
+               # dicionario_volta = dict(lista_Tuplas)
+               # dicionario_volta = str(dicionario_volta)
                 
-                with open(Nome_Arquivo,'w') as arquivo_deTexto:
-                    string = str(dicionario_volta)
-                    arquivo_deTexto.write(string)
+                dicionario_volta = transforma_em_dic(lista_Tuplas)
+
+               
+                escrever_arquivo(Nome_Arquivo,dicionario_volta)
+
+                #with open(Nome_Arquivo,'w') as arquivo_deTexto:
+                 #   string = str(dicionario_volta)
+                  #  arquivo_deTexto.write(string)
 
             if adicionar_ou_modificar == "A":
-                with open(Nome_Arquivo,'r') as arquivo_deTexto:
-                    texto = arquivo_deTexto.readlines()
+                
+                texto = leitura(Nome_Arquivo)
+               
+
+                #with open(Nome_Arquivo,'r') as arquivo_deTexto:
+                 #   texto = arquivo_deTexto.readlines()
 
                 convertendo_ParaDict = ast.literal_eval(texto[0])
+                
                 lista_Tuplas = list(convertendo_ParaDict.items())
 
-                elementoTupla,valorTupla = input("digite o elemento e o valor entre espacos ex: Fe 2").split()
+                (elementoTupla,valorTupla) = input("digite o elemento e o valor entre espacos ex: Fe 2 ").split()
+                
+                        
+                adiciona_a_lista(elementoTupla,valorTupla) #adiciona a lista o novo elemento 
 
-                listaElemento = [elementoTupla,int(valorTupla)]
+                dicionario_volta = transforma_em_dic(lista_Tuplas)
 
-                lista_Tuplas.append(tuple(listaElemento))
+                #dicionario_volta = dict(lista_Tuplas)
+                #dicionario_volta = str(dicionario_volta)
 
-                dicionario_volta = dict(lista_Tuplas)
+                escrever_arquivo(Nome_Arquivo,dicionario_volta) #escreve dicionario de volta no arquivo de texto
 
-                with open(Nome_Arquivo,'w') as arquivo_deTexto:
-                    string = str(dicionario_volta)
-                    arquivo_deTexto.write(string)
-    except:      
+                  #  with open(Nome_Arquivo,'w') as arquivo_deTexto:
+                   #     string = str(dicionario_volta)
+                    #    arquivo_deTexto.write(string)
+
+    except FileNotFoundError: 
+
+
         print("criando arquivo")
         print("Primeira vez do arquivo sendo feito")
-        for index_tupla in range(len(Dicionario_para_lista)): 
-            # quitar = input('quitear programa ? S/N ')
-                #if quitar == "S":
-                 #   break
+        for index_tupla in range(len(Dicionario_para_lista)):
+
+
+
+             # quitar = input('quitear programa ? S/N ')
+                 #if quitar == "S":
+                  #   break
             lista_tuplas = []
             print("elemento ",Dicionario_para_lista[index_tupla][0])
             valor = input("digite o valor a ser modificado no elemento caso queria sair apenas \npressione enter ")
+            
             if valor == '':
                 break
+            
             else:
+                try:
+                    lista_tuplas.append(Dicionario_para_lista[index_tupla][0])
+                    lista_tuplas.append(float(valor)) 
+                    Dicionario_para_lista[index_tupla] = tuple(lista_tuplas)
+                    dicionario_volta = dict(Dicionario_para_lista)
+                    dicionario_volta = str(dicionario_volta)
+                    escrever_arquivo(Nome_Arquivo,dicionario_volta)
+                except:
 
-                lista_tuplas.append(Dicionario_para_lista[index_tupla][0])
-                lista_tuplas.append(valor) 
-                Dicionario_para_lista[index_tupla] = tuple(lista_tuplas)
-                dicionario_volta = dict(Dicionario_para_lista)
-                with open(Nome_Arquivo,'w') as arquivo_deTexto:
-                    string = str(dicionario_volta)
-                    arquivo_deTexto.write(string)
+                    lista_tuplas.append(Dicionario_para_lista[index_tupla][0])
+                    lista_tuplas.append(valor)
+                    #def funçao 
+                    Dicionario_para_lista[index_tupla] = tuple(lista_tuplas)
+                    dicionario_volta = dict(Dicionario_para_lista)
+                    dicionario_volta = str(dicionario_volta)
+                    escrever_arquivo(Nome_Arquivo,dicionario_volta)
+
+
+               # with open(Nome_Arquivo,'w') as arquivo_deTexto:
+               #     string = str(dicionario_volta)
+                #    arquivo_deTexto.write(string)
+
+    except:
+
+        print("erro inesperado")
+
+
+
 
