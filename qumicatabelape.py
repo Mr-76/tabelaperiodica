@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-import Elementos_eletroneg
+import dicionario
 def encontra_elemento(elemento):
     tabela = np.array([['H','','','','','','','','','','','','B','C','N','O','F','NE'],['LI','BE','','','','','','','','','','','B','C','N','O','F','NE'],['NA','MG','','','','','','','','','','','AL','SI','P','S','CL','AR'],['K','CA','SC','TI','V','CE','MN','FE','CO','NI','CU','ZN','GA','GE','AS','SE','BR','KR'],['RB','SR','Y','ZR','NB','MO','TC','RU','RH','PD','AG','CD','LN','SN','SB','TE','L','XE'],['CS','BA','MUITO1','HF','TA','W','RE','OS','LR','PT','AU','HG','TI','PB','BI','PO','AT','RN'],['FR','RA','MUITO2','RF','DB','SG','BH','HS','MT','DS','RG','CN','NH','FL','MC','LV','TS','OG']])
 
@@ -61,7 +61,7 @@ elemento = input("qual elemento? ")
 
 
 
-Dic_eletro = Elementos_eletroneg.elementos_eletro
+Dic_eletro = dicionario.elementos_eletro
 
 
 
