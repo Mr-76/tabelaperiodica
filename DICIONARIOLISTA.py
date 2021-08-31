@@ -14,12 +14,13 @@ def adiciona_a_lista(elementoTupla,valorTupla):
 
 def transforma_em_dic(lista_Tuplas):
     dicionario_volta = dict(lista_Tuplas)
-    dicionario_volta = str(dicionario_volta)
+    dicionario_volta = str(dicionario_volta) #tratar como arquivo py melhor
     return dicionario_volta
             
 def escrever_arquivo(Nome_Arquivo,dicionario_volta):
     with open(Nome_Arquivo,'w') as arquivo_deTexto:
-        arquivo_deTexto.write(dicionario_volta)
+        nome = Nome_Arquivo.replace('.py','').lower() # bom para quando chamar dicionario em                                                                 outro programa
+        arquivo_deTexto.write(nome + ' = ' + dicionario_volta)
 
 def leitura(Nome_Arquivo):
     with open(Nome_Arquivo,'r') as arquivo_deTexto:
@@ -49,7 +50,7 @@ Dicionario_para_lista = list(elementos_eletro.items())#transformando a lista de 
 
 print(Dicionario_para_lista)
 
-tipos = ("massa","atomico","estado","radio")
+tipos = ("MASSA","ATOMICO","ESTADO","RADIO") #em caps para nome do arquvio e sem caps                                                   para nome do dicionario
 #massa
 for tipo in tipos:
     print("tipo: {}".format(tipo))
@@ -59,7 +60,7 @@ for tipo in tipos:
     if escolha == "N":
         continue #pular para outro tipo 
     if escolha == "Y":
-        Nome_Arquivo = ("{}.txt".format(tipo))
+        Nome_Arquivo = ("{}.py".format(tipo))
 
     try:
 
