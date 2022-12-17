@@ -1,6 +1,6 @@
 import ast
 def adiciona_a_lista(elementoTupla,valorTupla):
-    if type(valorTupla) == int:
+    if type(valorTupla) is int:
         listaElemento = [elementoTupla,int(valorTupla)]
         lista_Tuplas.append(tuple(listaElemento))
     
